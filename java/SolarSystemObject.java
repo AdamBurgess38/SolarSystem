@@ -2,10 +2,13 @@
  * @author Adam Burgess
  * Allows you to create a planet and add to the solar system without explicity using the Solar System class
  */
-public class Planet extends SolarSystemObject
+public class SolarSystemObject
 {
-   
-    protected double changeInAngle;
+    protected double distance;
+    protected double angle;
+    protected double diameter;
+    protected String colour;
+    
 
     /**
      * Constructor to initialize variables in Planet class
@@ -15,10 +18,14 @@ public class Planet extends SolarSystemObject
      * @param c Colour
      * @param changeAngle Change in angle, allows for realistic 2D rotation to occurs.
      */
-    public Planet(double d, double a, double dia, String c, double changeAngle)
+    public SolarSystemObject(double d, double a, double dia, String c)
     {
-        super(d, a, dia, c);
-        this.changeInAngle = changeAngle;
+        
+        this.distance = d;
+        this.angle = a;
+        this.diameter = dia;
+        this.colour = c;
+        
     }
     /**
      * Accessor method
@@ -53,14 +60,8 @@ public class Planet extends SolarSystemObject
     public void rotation(SolarSystem s)
     {
         s.drawSolarObject(distance, angle, diameter, colour);
-        alterAngle();
+        
     }
 
-    /**
-     * Alters the angle, this allows for rotation to occur and prevents the planet from.
-     */
-    protected void alterAngle()
-    {
-        angle += changeInAngle;
-    }
+    
 }
