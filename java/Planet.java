@@ -2,10 +2,9 @@
  * @author Adam Burgess
  * Allows you to create a planet and add to the solar system without explicity using the Solar System class
  */
-public class Planet extends SolarSystemObject
-{
-   
-    protected double changeInAngle;
+public class Planet extends SolarSystemObject implements SolarObjectMovement {
+    //Change in angle (Dictates speed of moon orbiting.)
+    private double changeInAngle;
 
     /**
      * Constructor to initialize variables in Planet class
@@ -15,52 +14,25 @@ public class Planet extends SolarSystemObject
      * @param c Colour
      * @param changeAngle Change in angle, allows for realistic 2D rotation to occurs.
      */
-    public Planet(double d, double a, double dia, String c, double changeAngle)
-    {
-        super(d, a, dia, c);
-        this.changeInAngle = changeAngle;
+    public Planet(String n, double d, double a, double dia, String c, double changeAngle) {
+        super(n, d, a, dia, c);
+        this.changeInAngle = changeAngle * 1.5;
     }
-    /**
-     * Accessor method
-     * @return The distance variable
-     */
-    public double getDistance()
-    {
-        return distance;
-    }
-    /**
-     * Accessor method
-     * @return The angle variable
-     */
-    public double getAngle()
-    {
-        return angle;
-    }
-
-    /**
-     * Accessor method
-     * @return The instance variable diameter
-     */
-    public double getDiameter()
-    {
-        return diameter;
-    }
-
     /**
      * Makes use of instance variables within Planet class to draw the planet onto the SolarSystem
      * @param s The solar system which the planet object will be draw onto
      */
-    public void rotation(SolarSystem s)
-    {
-        s.drawSolarObject(distance, angle, diameter, colour);
-        alterAngle();
+    public void draw(SolarSystem s, double speed) {
+        s.drawSolarObject(distance, angle * speed, diameter, colour);
+        alterPosition();
     }
 
     /**
-     * Alters the angle, this allows for rotation to occur and prevents the planet from.
+     * Alters the position of the planet, this allows for orbitation to occur.
      */
-    protected void alterAngle()
-    {
+    public void alterPosition() {
         angle += changeInAngle;
     }
+
+
 }

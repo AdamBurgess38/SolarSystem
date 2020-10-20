@@ -31,7 +31,7 @@ public class SolarSystem extends JFrame
 		this.width = width;
 		this.height = height;
 
-		this.setTitle("The Solar System");
+		this.setTitle("The Solar System - W & S to control Speed");
 		this.setSize(width, height);
 		this.setBackground(Color.BLACK);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
