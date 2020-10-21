@@ -1,5 +1,5 @@
 /**
- * Extends the planet class to allow for a different drawSolarObject method to be called.
+ * Extends the SolarSystemObject class to allow for a different drawSolarObject method to be called.
  * This allows us to rotate around a planet rather than the centre which would be the sun!
  * @author Adam Burgess
  */

@@ -1,15 +1,19 @@
+/**
+ * Class which allows User to create objects which are comets. 
+ * @author Adam Burgess
+ */
 public class Comet extends SolarSystemObject{
 
     //Change in angle of comet
     private double changeInAngle;
 
     /**
-     * 
-     * @param n Name of comet
+     * Used to instantiate an instance of Comet.
+     * @param n Name of Comet
      * @param d Distance from Sun
      * @param a Angle from sun (Bearing)
-     * @param dia  Diameter of comet
-     * @param c Colour of comet
+     * @param dia  Diameter of Comet
+     * @param c Colour of Comet
      */
     public Comet(String n, double d, double a, double dia, String c) {
         super(n, d, a, dia, c);
@@ -41,6 +45,7 @@ public class Comet extends SolarSystemObject{
      */
     protected void resetAngle()
     {
+        //Resets angle to 0.
         alterAngle(-getAngle());
         alterAngle(40 + (int)(Math.random() * 300));
     }
@@ -50,6 +55,7 @@ public class Comet extends SolarSystemObject{
      */
     protected void resetDistance()
     {
+        //Resets distance to 0.
         alterDistance(-getDistance());
         alterDistance(40 + (int)(Math.random() * 300));
     }

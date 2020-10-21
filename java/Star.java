@@ -1,3 +1,7 @@
+/**
+ * Class allows User to produce a star object, which will typically be the centre of a solar system. 
+ * @author Adam Burgess
+ */
 public class Star extends SolarSystemObject
 {
     /**
@@ -17,7 +21,7 @@ public class Star extends SolarSystemObject
      */
     public void draw(SolarSystem s, double speed)
     {
-        s.drawSolarObject(this.getDistance(), 0, this.getDiameter(), this.getColour());
+        s.drawSolarObject(this.getDistance(), this.getAngle(), this.getDiameter(), this.getColour());
     }
     
 }

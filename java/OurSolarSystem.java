@@ -2,12 +2,17 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * Class created to make the most of the classes used to create solar system. 
+ * Speed of orbit can be altered slightly using W (Increase speed) and S (Decrease speed) keys
+ * @author Adam Burgess
+ */
 public class OurSolarSystem implements KeyListener {
     // SolarSystem class used to allow us to draw objects.
     public static final SolarSystem solarSystem = new SolarSystem(900, 900);
     // Array of SolarSystemObjects.
     public static final SolarSystemObject[] solarObjects = new SolarSystemObject[13];
-    double speed = 1;
+    private double speed = 1;
 
     /**
      * Constructor for OurSolarSystem, creates an instance.
@@ -82,6 +87,7 @@ public class OurSolarSystem implements KeyListener {
     public void keyPressed(KeyEvent e) {
         //Check's which key was pressed.
         int id = e.getKeyCode();
+        //ID represents key 'w' 87, and 's' is represented by 83 
         if (id == 87) {
             //Increases speed of whole system
             speed = (speed < 3) ? speed + 0.025 : speed;
@@ -89,7 +95,7 @@ public class OurSolarSystem implements KeyListener {
             //Decreases speed of whole system
             speed = (speed > 1) ? speed - 0.025 : speed;
         }
-        System.out.println("Speed:" + speed);
+        
 
     }
 
