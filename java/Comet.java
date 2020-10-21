@@ -1,4 +1,4 @@
-public class Comet extends SolarSystemObject implements SolarObjectMovement {
+public class Comet extends SolarSystemObject{
 
     //Change in angle of comet
     private double changeInAngle;
@@ -20,7 +20,7 @@ public class Comet extends SolarSystemObject implements SolarObjectMovement {
      * Draw comet onto SolarSystem Panel
      */
     public void draw(SolarSystem s, double speed) {
-        s.drawSolarObject(distance, angle, diameter, colour);
+        s.drawSolarObject(this.getDistance(), this.getAngle(), this.getDiameter(), this.getColour());
         alterPosition();
     }
 
@@ -28,22 +28,39 @@ public class Comet extends SolarSystemObject implements SolarObjectMovement {
     /**
      * Alters position to sun to emulate motion.
      */
-    public void alterPosition() {
-        angle += 2;
-        distance += 10;
-        if (distance > 500) {
+    private void alterPosition() {
+        alterAngle(changeInAngle);
+        alterDistance(10);
+        if (this.getDistance() > 500) {
             resetComet();
         }
     }
 
+    /**
+     * Resets angle, allows comet object to look like a new comet when comet goes out of bounds.
+     */
+    protected void resetAngle()
+    {
+        alterAngle(-getAngle());
+        alterAngle(40 + (int)(Math.random() * 300));
+    }
 
     /**
-     * When comet is out of bounds, this code resets it and emulates a new comet in area.
+     * Resets distance, allows comet object to look like a new comet when comet goes out of bounds.
+     */
+    protected void resetDistance()
+    {
+        alterDistance(-getDistance());
+        alterDistance(40 + (int)(Math.random() * 300));
+    }
+
+    /**
+     * When comet is out of bounds, this code resets it and emulates a new comet in area, without instanitating a new object.
      */
     public void resetComet() {
-        distance = 40 + (int)(Math.random() * 300);
-        angle = 40 + (int)(Math.random() * 300);
-        diameter = 5 + (int)(Math.random() * 15);
+        resetAngle();
+        resetDistance();
+        setDiameter(5 + (int)(Math.random() * 15));
         changeInAngle = -4 + (int)(Math.random() * 3);
     }
 }

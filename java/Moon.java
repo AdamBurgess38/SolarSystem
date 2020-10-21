@@ -3,7 +3,7 @@
  * This allows us to rotate around a planet rather than the centre which would be the sun!
  * @author Adam Burgess
  */
-public class Moon extends SolarSystemObject implements SolarObjectMovement {
+public class Moon extends SolarSystemObject{
     //Planet object moon will orbit.
     private SolarSystemObject moonsPlanet;
     //Change in angle (Dictates speed of moon orbiting.)
@@ -30,27 +30,14 @@ public class Moon extends SolarSystemObject implements SolarObjectMovement {
      * @param p The planet that the moon will rotate against.
      */
     public void draw(SolarSystem s, double speed) {
-        s.drawSolarObjectAbout(distance, angle * speed, 10, "GREY", moonsPlanet.getDistance(), moonsPlanet.getAngle() * speed);
-        alterPosition();
+        s.drawSolarObjectAbout(this.getDistance(), this.getAngle() * speed, 10, "GREY", moonsPlanet.getDistance(), moonsPlanet.getAngle() * speed);
+        
+        alterAngle(changeInAngle);
     }
 
-    /**
-     * Alters the position, this allows for rotation to occur around the moon's planet.
-     */
-    public void alterPosition() {
-        angle += changeInAngle;
-    }
+    
 
-    /**
-     * Overrided method, can view all information needed for an instance of the Moon class.
-     */
-    @Override
-    public String toString() {
-        return ("Name: " + name + "\nDistance from rotation point: " + distance +
-            "\nAngle of polar coordinate: " + angle + "\nDiameter: " + diameter +
-            "\nColour: " + colour +
-            "Planet moon is orbiting: " + moonsPlanet);
-    }
+    
 
 
 

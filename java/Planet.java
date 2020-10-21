@@ -2,7 +2,7 @@
  * @author Adam Burgess
  * Allows you to create a planet and add to the solar system without explicity using the Solar System class
  */
-public class Planet extends SolarSystemObject implements SolarObjectMovement {
+public class Planet extends SolarSystemObject{
     //Change in angle (Dictates speed of moon orbiting.)
     private double changeInAngle;
 
@@ -23,16 +23,11 @@ public class Planet extends SolarSystemObject implements SolarObjectMovement {
      * @param s The solar system which the planet object will be draw onto
      */
     public void draw(SolarSystem s, double speed) {
-        s.drawSolarObject(distance, angle * speed, diameter, colour);
-        alterPosition();
+        s.drawSolarObject(this.getDistance(), this.getAngle() * speed, this.getDiameter(), this.getColour());
+        alterAngle(changeInAngle);
     }
 
-    /**
-     * Alters the position of the planet, this allows for orbitation to occur.
-     */
-    public void alterPosition() {
-        angle += changeInAngle;
-    }
+    
 
 
 }

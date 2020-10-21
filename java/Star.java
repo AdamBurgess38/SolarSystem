@@ -17,7 +17,7 @@ public class Star extends SolarSystemObject
      */
     public void draw(SolarSystem s, double speed)
     {
-        s.drawSolarObject(distance, angle*speed, diameter, colour);
+        s.drawSolarObject(this.getDistance(), 0, this.getDiameter(), this.getColour());
     }
     
 }

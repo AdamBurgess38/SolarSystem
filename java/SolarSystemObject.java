@@ -3,14 +3,11 @@
  * Allows you to create a planet and add to the solar system without explicity using the Solar System class
  */
 abstract class SolarSystemObject {
-    protected String name;
-    protected double distance;
-    protected double angle;
-    protected double diameter;
-    protected String colour;
-
-
-
+    private String name;
+    private double distance;
+    private double angle;
+    private double diameter;
+    private String colour;
 
     /**
      * Constructor to initialize variables in Planet class
@@ -42,6 +39,16 @@ abstract class SolarSystemObject {
         return angle;
     }
 
+
+    /**
+     * 
+     * @return A string which represents the colour of the SolarSystemObject.
+     */
+    public String getColour()
+    {
+        return colour;
+    }
+
     /**
      * Accessor method
      * @return The instance variable diameter
@@ -49,6 +56,36 @@ abstract class SolarSystemObject {
     public double getDiameter() {
         return diameter;
     }
+
+    /**
+     * Emulates movement as object will be redraw in different position.
+     * @param changeAngle Change in current angle to polar coordinates.
+     */
+    protected void alterAngle(double changeAngle)
+    {
+        angle += changeAngle;
+    }
+
+
+    /**
+     * ALlows you to alter distance (if object doesn't follow typicaly oribting patterns)
+     * @param d Will be the change in the distance.
+     */
+    protected void alterDistance(double d)
+    {
+        distance += d;
+    }
+
+
+    /**
+     * Allows user to reset the diameter of a solar object, useful for emulating new objects.
+     * @param d
+     */
+    protected void setDiameter(double d)
+    {
+        diameter = d;
+    }
+
 
     /**
      * Makes use of instance variables within Planet class to draw the planet onto the SolarSystem

@@ -84,10 +84,10 @@ public class OurSolarSystem implements KeyListener {
         int id = e.getKeyCode();
         if (id == 87) {
             //Increases speed of whole system
-            speed = (speed < 3) ? speed + 0.05 : speed;
+            speed = (speed < 3) ? speed + 0.025 : speed;
         } else if (id == 83) {
             //Decreases speed of whole system
-            speed = (speed > 1) ? speed - 0.05 : speed;
+            speed = (speed > 1) ? speed - 0.025 : speed;
         }
         System.out.println("Speed:" + speed);
 
