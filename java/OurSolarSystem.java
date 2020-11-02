@@ -20,6 +20,7 @@ public class OurSolarSystem implements KeyListener {
     public OurSolarSystem() {
         solarSystem.addKeyListener(this);
         initializePlanets();
+        continuallyMove();
     }
 
     /**
@@ -52,9 +53,19 @@ public class OurSolarSystem implements KeyListener {
     }
 
     /**
+     * Cals the moveSystem() method forever to emulate a solar system.
+     */
+    private void continuallyMove()
+    {
+        while(true)
+        {
+            moveSystem();
+        }
+    }
+    /**
      * Method to move each item in solarObjects array.
      */
-    public void moveSystem() {
+    private void moveSystem() {
         for (int i = 0; i < solarObjects.length; i++) {
             solarObjects[i].draw(solarSystem, speed);
 
